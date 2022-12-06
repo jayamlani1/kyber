@@ -308,6 +308,10 @@ void poly_reduce(poly *r)
   unsigned int i;
   for(i=0;i<KYBER_N;i++)
     r->coeffs[i] = barrett_reduce(r->coeffs[i]);
+  
+  /* The for loop should be changed to:
+   * r->coeffs[shuffled_index[i]] = barrett_reduce(r->coeffs[shuffled_index[i]]);
+   */
 }
 
 /*************************************************
